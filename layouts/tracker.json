@@ -58,11 +58,59 @@
                             "tabs": [
                                 {
                                     "title": "Kanto",
-                                    "icon": "images/items/townmap.png",
                                     "content": {
-                                        "type": "map",
-                                        "maps": [
-                                            "map"
+                                        "type": "tabbed",
+                                        "dock": "top",
+                                        "tabs": [
+                                            {
+                                                "title": "Overworld",
+                                                "icon": "images/items/townmap.png",
+                                                "content": {
+                                                    "type": "map",
+                                                    "maps": [
+                                                        "map"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "title": "Vermilion City",
+                                                "icon": "images/items/townmap.png",
+                                                "content": {
+                                                    "type": "map",
+                                                    "maps": [
+                                                        "vermilion"
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "title": "Routes",
+                                    "content": {
+                                        "type": "tabbed",
+                                        "dock": "top",
+                                        "tabs": [
+                                            {
+                                                "title": "Route 6",
+                                                "icon": "images/items/townmap.png",
+                                                "content": {
+                                                    "type": "map",
+                                                    "maps": [
+                                                        "route6"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "title": "Route 11",
+                                                "icon": "images/items/townmap.png",
+                                                "content": {
+                                                    "type": "map",
+                                                    "maps": [
+                                                        "route11"
+                                                    ]
+                                                }
+                                            }
                                         ]
                                     }
                                 },

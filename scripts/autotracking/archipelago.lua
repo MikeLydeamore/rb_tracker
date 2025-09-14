@@ -1,6 +1,6 @@
 ScriptHost:LoadScript("scripts/autotracking/slot_options.lua")
 ScriptHost:LoadScript("scripts/autotracking/item_mapping.lua")
-
+ScriptHost:LoadScript("scripts/autotracking/tab_mapping.lua")
 
 if IS_PSEUDOTRACKING then
 	ScriptHost:LoadScript("scripts/autotracking/location_and_event_mapping.lua")
@@ -179,8 +179,36 @@ function onLocation(location_id, location_name)
 	end
 end
 
+function onBounce(json)
+  local data = json["data"]
+  if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+    print("onBounce called with json:")
+    print(dump_table(json))
+    print("onBounce data contents:")
+    print(dump_table(data))
+  end
+  if data then
+    newmap_id = data["currentMap"]
+    if newmap_id then
+      local tabs = TAB_MAPPING[newmap_id]
+      if not tabs then
+        tabs = TAB_MAPPING[-1] -- default tab if no specific mapping exists
+      end
+      if tabs then
+        for _, tab in ipairs(tabs) do
+          Tracker:UiHint("ActivateTab", tab)
+          if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+              print(string.format("onBounce: switching to tab %s", tab))
+          end
+        end
+      end
+    end
+  end
+end
+
 
 -- add AP callbacks
 Archipelago:AddClearHandler("clear handler", onClear)
 Archipelago:AddItemHandler("item handler", onItem)
 Archipelago:AddLocationHandler("location handler", onLocation)
+Archipelago:AddBouncedHandler("bounce handler", onBounce)

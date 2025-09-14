@@ -70,5 +70,23 @@
         "location_size": 12,
         "location_border_thickness": 2,
         "img": "images/maps/victoryroad.png"
+    },
+    {
+        "name": "vermilion",
+        "location_size": 12,
+        "location_border_thickness": 2,
+        "img": "images/maps/vermilion.png"
+    },
+    {
+        "name": "route6",
+        "location_size": 20,
+        "location_border_thickness": 2,
+        "img": "images/maps/route6.png"
+    },
+    {
+        "name": "route11",
+        "location_size": 12,
+        "location_border_thickness": 2,
+        "img": "images/maps/route11.png"
     }
 ]
